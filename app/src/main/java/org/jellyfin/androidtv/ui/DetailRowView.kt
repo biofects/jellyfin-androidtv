@@ -6,7 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnFocusChangeListener
 import android.widget.FrameLayout
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.view.isVisible
+import org.jellyfin.androidtv.R
 import org.jellyfin.androidtv.databinding.ViewRowDetailsBinding
+import org.jellyfin.androidtv.util.Utils
 
 class DetailRowView @JvmOverloads constructor(
 	context: Context,
@@ -49,5 +54,37 @@ class DetailRowView @JvmOverloads constructor(
 	init {
 		binding.fdButtonRow.setOnHierarchyChangeListener(buttonsHierarchyChangeListener)
 		binding.mainImage.clipToOutline = true
+
+		val attributes = context.theme.obtainStyledAttributes(intArrayOf(R.attr.biofectsDetailsLayout))
+		val useBiofectsLayout = attributes.getBoolean(0, false)
+		attributes.recycle()
+
+		if (useBiofectsLayout) applyBiofectsLayout()
+	}
+
+	private fun applyBiofectsLayout() {
+		val constraintSet = ConstraintSet().apply { clone(binding.detailsContent) }
+		val horizontalMargin = Utils.convertDpToPixel(context, 28)
+		binding.fdSummaryText.setBackgroundResource(R.drawable.details_panel_background)
+
+		constraintSet.setGuidelineBegin(R.id.guide_main_start, Utils.convertDpToPixel(context, 270))
+		constraintSet.setGuidelineEnd(R.id.guide_main_end, Utils.convertDpToPixel(context, 50))
+
+		constraintSet.clear(R.id.mainImageContainer)
+		constraintSet.connect(R.id.mainImageContainer, ConstraintSet.START, ConstraintSet.PARENT_ID, ConstraintSet.START, horizontalMargin)
+		constraintSet.connect(R.id.mainImageContainer, ConstraintSet.TOP, R.id.fdTitle, ConstraintSet.TOP)
+		constraintSet.constrainWidth(R.id.mainImageContainer, Utils.convertDpToPixel(context, 220))
+		constraintSet.constrainHeight(R.id.mainImageContainer, Utils.convertDpToPixel(context, 340))
+
+		constraintSet.clear(R.id.fdSummaryText, ConstraintSet.BOTTOM)
+		constraintSet.constrainHeight(R.id.fdSummaryText, ConstraintLayout.LayoutParams.WRAP_CONTENT)
+		constraintSet.applyTo(binding.detailsContent)
+
+		binding.infoTitle1.isVisible = false
+		binding.infoValue1.isVisible = false
+		binding.infoTitle2.isVisible = false
+		binding.infoValue2.isVisible = false
+		binding.infoTitle3.isVisible = false
+		binding.infoValue3.isVisible = false
 	}
 }

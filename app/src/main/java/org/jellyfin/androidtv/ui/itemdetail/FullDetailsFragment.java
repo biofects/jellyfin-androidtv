@@ -48,6 +48,7 @@ import org.jellyfin.androidtv.data.repository.CustomMessageRepository;
 import org.jellyfin.androidtv.data.service.BackgroundService;
 import org.jellyfin.androidtv.databinding.FragmentFullDetailsBinding;
 import org.jellyfin.androidtv.preference.UserPreferences;
+import org.jellyfin.androidtv.preference.constant.AppTheme;
 import org.jellyfin.androidtv.preference.constant.ClockBehavior;
 import org.jellyfin.androidtv.ui.InteractionTrackerViewModel;
 import org.jellyfin.androidtv.ui.RecordPopup;
@@ -418,7 +419,8 @@ public class FullDetailsFragment extends Fragment implements RecordingIndicatorV
 
             mDetailsOverviewRow = new MyDetailsOverviewRow(item);
 
-            String primaryImageUrl = imageHelper.getValue().getLogoImageUrl(mBaseItem, 600);
+                    boolean useCasePoster = useBiofectsMovieLayout(item);
+                String primaryImageUrl = useCasePoster ? null : imageHelper.getValue().getLogoImageUrl(mBaseItem, 600);
             if (primaryImageUrl == null) {
                 primaryImageUrl = imageHelper.getValue().getPrimaryImageUrl(mBaseItem, false, null, posterHeight);
             }
@@ -488,7 +490,11 @@ public class FullDetailsFragment extends Fragment implements RecordingIndicatorV
         if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) return;
 
         mBaseItem = item;
-        backgroundService.getValue().setBackground(item);
+        if (useBiofectsMovieLayout(item)) {
+            backgroundService.getValue().clearBackgrounds();
+        } else {
+            backgroundService.getValue().setBackground(item);
+        }
         if (mBaseItem != null) {
             if (mChannelId != null) {
                 mBaseItem = JavaCompat.copyWithParentId(mBaseItem, mChannelId);
@@ -502,6 +508,11 @@ public class FullDetailsFragment extends Fragment implements RecordingIndicatorV
             }
             new BuildDorTask().execute(item);
         }
+    }
+
+    private boolean useBiofectsMovieLayout(BaseItemDto item) {
+        return item.getType() == BaseItemKind.MOVIE
+                && userPreferences.getValue().get(UserPreferences.Companion.getAppTheme()) == AppTheme.ENHANCED_BIOFECTS;
     }
 
     protected void addItemRow(MutableObjectAdapter<Row> parent, ItemRowAdapter row, int index, String headerText) {

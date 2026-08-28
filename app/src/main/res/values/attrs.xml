@@ -25,6 +25,9 @@
         <attr name="controlIconForegroundActive" format="reference|color" />
         <attr name="controlIconForegroundInactive" format="reference|color" />
         <attr name="defaultBackground" format="reference|color" />
+        <attr name="detailsPanelBackground" format="reference|color" />
+        <attr name="detailsPanelBorder" format="reference|color" />
+        <attr name="biofectsDetailsLayout" format="boolean" />
         <!-- QR drawables -->
         <attr name="qrBackground" format="color" />
         <attr name="qrForeground" format="color" />
