@@ -42,6 +42,18 @@
 Jellyfin for Android TV is a Jellyfin client for Android TV, Nvidia Shield, and Amazon Fire TV devices. We welcome all contributions and pull
 requests! If you have a larger feature in mind please open an issue so we can discuss the implementation before you start. 
 
+## Enhanced Biofects build
+
+This branch includes the Enhanced Biofects theme with a cyan grid background, transparent cover-art cases, a themed movie details layout,
+and consistent grid backgrounds throughout the app.
+
+Download the precompiled APK from the [Biofects releases page](https://github.com/biofects/jellyfin-androidtv/releases/latest), then follow
+the [installation guide](ENHANCED_BIOFECTS_INSTALL.md) to sideload it and enable the theme. The debug build installs alongside the official
+Jellyfin Android TV app.
+
+> This is an unofficial community build and is not supported by the Jellyfin project. The Enhanced Biofects modifications were developed
+> with AI assistance and reviewed and tested on a Sony BRAVIA running Android 12.
+
 ## Building
 
 The app uses Gradle and requires the Android SDK. We recommend using Android Studio, which includes all required dependencies, for
