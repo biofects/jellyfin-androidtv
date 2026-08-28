@@ -17,6 +17,7 @@ private val AppTheme.style
 		AppTheme.DARK -> R.style.Theme_Jellyfin
 		AppTheme.EMERALD -> R.style.Theme_Jellyfin_Emerald
 		AppTheme.MUTED_PURPLE -> R.style.Theme_Jellyfin_MutedPurple
+		AppTheme.ENHANCED_BIOFECTS -> R.style.Theme_Jellyfin_EnhancedBiofects
 	}
 
 /**

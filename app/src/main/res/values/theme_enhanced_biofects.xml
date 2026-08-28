@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="theme_biofects_accent">#00FFFF</color>
+    <color name="theme_biofects_accent_dim">#007A7A</color>
+    <color name="theme_biofects_background">#000F1E</color>
+    <color name="theme_biofects_surface">#001F2F</color>
+    <color name="theme_biofects_surface_light">#003D4D</color>
+    <color name="theme_biofects_surface_transparent">#E6001F2F</color>
+
+    <style name="Theme.Jellyfin.EnhancedBiofects" parent="Theme.Jellyfin">
+        <!-- Colors -->
+        <item name="android:colorPrimary">@color/theme_biofects_surface</item>
+        <item name="android:colorPrimaryDark">@color/theme_biofects_background</item>
+        <item name="android:colorAccent">@color/theme_biofects_accent</item>
+        <item name="defaultBackground">@color/theme_biofects_background</item>
+        <item name="cardImageBackground">@color/theme_biofects_surface</item>
+        <item name="defaultSearchColor">@color/theme_biofects_accent</item>
+        <item name="headerTextColor">@color/theme_biofects_accent</item>
+
+        <!-- Buttons and inputs -->
+        <item name="android:colorButtonNormal">@color/theme_biofects_surface_transparent</item>
+        <item name="buttonDefaultNormalBackground">@color/theme_biofects_surface_transparent</item>
+        <item name="buttonDefaultHighlightBackground">@color/theme_biofects_accent</item>
+        <item name="inputDefaultStrokeColor">@color/theme_biofects_accent_dim</item>
+        <item name="inputDefaultHighlightBackground">@color/theme_biofects_accent</item>
+        <item name="popupMenuBackground">@color/theme_biofects_surface</item>
+
+        <!-- Progress Bar -->
+        <item name="progressBackground">@color/theme_biofects_surface_light</item>
+        <item name="progressPrimary">@color/theme_biofects_accent</item>
+        <item name="progressSecondary">@color/theme_biofects_accent_dim</item>
+
+        <!-- Control icons -->
+        <item name="controlIconBackground">@color/theme_biofects_surface</item>
+        <item name="controlIconForegroundActive">@color/theme_biofects_accent</item>
+        <item name="controlIconForegroundInactive">@color/theme_biofects_accent_dim</item>
+
+        <!-- QR drawables -->
+        <item name="qrForeground">@color/theme_biofects_background</item>
+
+        <!-- Rounding Values -->
+        <item name="cardRounding">5dp</item>
+        <item name="buttonRounding">6dp</item>
+        <item name="inputRounding">6dp</item>
+        <item name="popupMenuRounding">6dp</item>
+
+        <!-- Tile colors -->
+        <item name="tile_port_person_bg">@color/theme_biofects_surface_light</item>
+        <item name="tile_port_video_bg">@color/theme_biofects_surface</item>
+        <item name="tile_land_folder_bg">@color/theme_biofects_accent_dim</item>
+        <item name="tile_chapter_bg">@color/theme_biofects_surface_light</item>
+        <item name="tile_land_tv_bg">@color/theme_biofects_surface</item>
+        <item name="tile_port_tv_bg">@color/theme_biofects_accent_dim</item>
+        <item name="tile_actors_bg">@color/theme_biofects_surface_light</item>
+        <item name="tile_land_photo_bg">@color/theme_biofects_surface</item>
+        <item name="tile_port_folder_bg">@color/theme_biofects_accent_dim</item>
+        <item name="tile_land_series_timer_bg">@color/theme_biofects_surface_light</item>
+        <item name="tile_audio_bg">@color/theme_biofects_surface</item>
+        <item name="tile_artists_bg">@color/theme_biofects_accent_dim</item>
+        <item name="tile_genres_bg">@color/theme_biofects_surface_light</item>
+        <item name="tile_search_bg">@color/theme_biofects_accent_dim</item>
+        <item name="tile_suggestions_bg">@color/theme_biofects_surface</item>
+        <item name="tile_port_grid_bg">@color/theme_biofects_surface_light</item>
+        <item name="tile_letters_bg">@color/theme_biofects_accent_dim</item>
+        <item name="tile_port_guide_bg">@color/theme_biofects_surface</item>
+        <item name="tile_port_series_timer_bg">@color/theme_biofects_surface_light</item>
+        <item name="tile_port_time_bg">@color/theme_biofects_accent_dim</item>
+    </style>
+</resources>

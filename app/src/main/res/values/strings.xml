@@ -266,6 +266,7 @@
     <string name="lbl_my_media">My media</string>
     <string name="pref_theme_dark">Dark (Default)</string>
     <string name="pref_theme_emerald">Classic emerald</string>
+    <string name="pref_theme_enhanced_biofects">Enhanced Biofects</string>
     <string name="pref_about_title">About</string>
     <string name="pref_external_player">Use external player</string>
     <string name="pref_next_up_timeout_summary">How long to wait before playing the next item</string>
