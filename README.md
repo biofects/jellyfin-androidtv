@@ -54,6 +54,16 @@ Jellyfin Android TV app.
 > This is an unofficial community build and is not supported by the Jellyfin project. The Enhanced Biofects modifications were developed
 > with AI assistance and reviewed and tested on a Sony BRAVIA running Android 12.
 
+### Screenshots
+
+#### Library with persistent grid background
+
+![Enhanced Biofects movie library with a cyan grid background](docs/screenshots/enhanced-biofects-library.png)
+
+#### Movie details
+
+![Enhanced Biofects movie details with case art and a cyan summary panel](docs/screenshots/enhanced-biofects-movie-details.png)
+
 ## Building
 
 The app uses Gradle and requires the Android SDK. We recommend using Android Studio, which includes all required dependencies, for
