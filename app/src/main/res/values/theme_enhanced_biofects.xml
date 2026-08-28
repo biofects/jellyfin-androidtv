@@ -13,7 +13,7 @@
         <item name="android:colorPrimary">@color/theme_biofects_surface</item>
         <item name="android:colorPrimaryDark">@color/theme_biofects_background</item>
         <item name="android:colorAccent">@color/theme_biofects_accent</item>
-        <item name="defaultBackground">@color/theme_biofects_background</item>
+        <item name="defaultBackground">@drawable/biofects_grid_background</item>
         <item name="cardImageBackground">@color/theme_biofects_surface</item>
         <item name="defaultSearchColor">@color/theme_biofects_accent</item>
         <item name="headerTextColor">@color/theme_biofects_accent</item>
