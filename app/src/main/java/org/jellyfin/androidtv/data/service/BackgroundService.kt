@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.jellyfin.androidtv.auth.model.Server
 import org.jellyfin.androidtv.preference.UserPreferences
+import org.jellyfin.androidtv.preference.constant.AppTheme
 import org.jellyfin.androidtv.preference.constant.BackdropBehavior
 import org.jellyfin.androidtv.util.apiclient.getUrl
 import org.jellyfin.androidtv.util.apiclient.itemBackdropImages
@@ -63,7 +64,7 @@ class BackgroundService(
 		val backdropBehavior = userPreferences[UserPreferences.backdropBehavior]
 
 		// Check if item is set and backgrounds are enabled
-		if (baseItem == null || backdropBehavior == BackdropBehavior.DISABLED)
+		if (baseItem == null || useThemeBackground || backdropBehavior == BackdropBehavior.DISABLED)
 			return clearBackgrounds()
 
 		// Enable blur for backdrops
@@ -82,7 +83,7 @@ class BackgroundService(
 	 */
 	fun setBackground(server: Server) {
 		// Check if item is set and backgrounds are enabled
-		if (userPreferences[UserPreferences.backdropBehavior] == BackdropBehavior.DISABLED)
+		if (useThemeBackground || userPreferences[UserPreferences.backdropBehavior] == BackdropBehavior.DISABLED)
 			return clearBackgrounds()
 
 		// Check if splashscreen is enabled in (cached) branding options
@@ -98,6 +99,9 @@ class BackgroundService(
 
 		loadBackgrounds(setOf(splashscreenUrl))
 	}
+
+	private val useThemeBackground
+		get() = userPreferences[UserPreferences.appTheme] == AppTheme.ENHANCED_BIOFECTS
 
 	private fun loadBackgrounds(backdropUrls: Set<String>) {
 		if (backdropUrls.isEmpty()) return clearBackgrounds()
